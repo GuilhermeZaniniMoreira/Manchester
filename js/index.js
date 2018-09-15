@@ -2,10 +2,8 @@ $(document).ready(function () {
 	$('#decodificar').click(function() {
 
 		// Deixar os outros campos de formulário
-		var binarioDescodificar = document.getElementById("binarioDescodificar");
-		binarioDescodificar.value = "";
-		var palavraDescodificar = document.getElementById("palavraDescodificar");
-		palavraDescodificar.value = "";
+		document.getElementById("binarioCodificar").value = "";
+		document.getElementById("palavra-binario").value = "";
 		
 		// codificar
 		var textoBinario = document.getElementById("binario");
@@ -125,12 +123,12 @@ $(document).ready(function () {
 	$('#codificar').click(function() {
 
 		var resultado = "";
-		var binario = document.getElementById("binarioDescodificar").value;
+		var binario = document.getElementById("binarioCodificar").value;
 
 		for (i = 0; i < binario.length; i = i + 8) {
-			resultado += String.fromCharCode(parseInt(textoBinario.substr(i,8),2));
+			resultado += String.fromCharCode(parseInt(binario.substr(i,8),2));
 		}
 		
-		document.getElementById("palavraDescodificar").value = resultado;
+		document.getElementById("palavra-binario").value = resultado;
 	});
 })
