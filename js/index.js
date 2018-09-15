@@ -60,62 +60,34 @@ $(document).ready(function () {
 		for (var i = 0; i < vetorBinario.length; i++) {	
 
 			if (vetorBinario[i] == "1") {	                        
-				eixoX[k] = k;
+				eixoX[k] = k/2;
 				eixoY[k] = -1;
 				k++;
-				eixoX[k] = k;
+				eixoX[k] = k/2;
 				eixoY[k] = 1;
 				k++;
 			} else {                     
-				eixoX[k] = k;
+				eixoX[k] = k/2;
 				eixoY[k] = 1;
 				k++;
-				eixoX[k] = k;
+				eixoX[k] = k/2;
 				eixoY[k] = -1;
 				k++;
 			}			
 		}
-
-		var copia_eixoX = []; // vetor que recebera cópia de eixo x
-
-		/*
-		*  variável pos é a que indica onde cada bit tem seu fim na representação no gráfico
-		*  inicia em 0.5 pois é onde o primeiro bit termina
-		*  durante o laço de repetição - for - a variável vai sendo incrementada em seu valor mais 0.5 cada vez
-		*/
-
-		var pos = 0.5;
-		copia_eixoX[0] = 0;
 		
-		for (var i = 0; i < eixoX.length; i++) {
-			if (i != 0) { // apenas se if for diferente de 0 pois a variável já está settada em 0.5 e a posição 0 recebe 0.5
-				copia_eixoX[i] = pos; // copia_eixoX na posição atual recebe pos
-				pos += 0.5;
-			}
-		}
-		
-		// settando especificações do gráfico
-
-		var trace4 = {
-			x: copia_eixoX, 
+		var trace1 = {
+			x: eixoX,
 			y: eixoY, 
 			mode: 'lines+markers', 
-			name: 'vh', 
 			line: {shape: 'vh'}, 
 			type: 'scatter'
 		};
 
-		var data = [trace4];
-
-		var layout = {legend: {
-			y: 0, 
-			traceorder: 'reversed', 
-			font: {size: 16}, 
-			yref: 'paper'
-		}};
+		var data = [trace1];
 
 		// Chamando função para criar gráfico na div no html
-		Plotly.newPlot('manchester', data, layout);
+		Plotly.newPlot('manchester', data);
 		
 	});
 	
