@@ -125,11 +125,10 @@ $(document).ready(function () {
 	$('#codificar').click(function() {
 
 		var resultado = "";
+		var binario = document.getElementById("binarioDescodificar").value;
 
-		var textoBinario = document.getElementById("binarioDescodificar").value.replace(/[^01]/g, "");
-
-		for (z = 0; z < textoBinario.length; z = z + 8) {
-			resultado += String.fromCharCode(parseInt(textoBinario.substr(z,8),2));
+		for (i = 0; i < binario.length; i = i + 8) {
+			resultado += String.fromCharCode(parseInt(textoBinario.substr(i,8),2));
 		}
 		
 		document.getElementById("palavraDescodificar").value = resultado;
